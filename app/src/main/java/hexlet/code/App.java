@@ -23,7 +23,8 @@ public final class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws IOException {
-        System.out.println(Differ.generate(path1,path2,format));
+        System.out.println("filepath1" + path1);
+        System.out.println("filepath2" + path2);
         return 0;
     }
     public static void main(String[] args) {
