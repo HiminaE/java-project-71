@@ -18,9 +18,6 @@ public final class App implements Callable<Integer> {
     @Parameters(index = "1", paramLabel = "path2", description = "patch to second file")
     private String path2;
 
-    @Option(names = {"-f", "--format"}, defaultValue = "stylish", paramLabel = "format", description = "output format [default: stylish]")
-    private String formatter;
-
     @Override
     public Integer call() throws IOException {
         System.out.println("filepath1" + path1);
