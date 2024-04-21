@@ -18,6 +18,9 @@ public final class App implements Callable<Integer> {
     @Parameters(index = "1", paramLabel = "path2", description = "patch to second file")
     private String path2;
 
+    @Option(names = {"-a", "--algorithm"}, description = "empty algoritm")
+    private String algorithm = "empty";
+
     @Override
     public Integer call() throws IOException {
         System.out.println("filepath1" + path1);
