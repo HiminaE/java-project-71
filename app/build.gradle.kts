@@ -18,7 +18,11 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation(dependencyNotation = "org.junit.jupiter:junit-jupiter")
 }
-
-//tasks.test {
-    //useJUnitPlatform()
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(21)
+//    }
 //}
+tasks.test {
+    //useJUnitPlatform()
+}
