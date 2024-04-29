@@ -13,18 +13,17 @@ import java.io.IOException;
 
 public final class App implements Callable<Integer> {
 
-    @Parameters(index = "0", paramLabel = "filepath1", description = "patch to first file")
+    @Parameters(index = "0", description = "patch to first file")
     private String filepath1;
-    @Parameters(index = "1", paramLabel = "filepath2", description = "patch to second file")
+    @Parameters(index = "1", description = "patch to second file")
     private String filepath2;
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
-    private String format = "stylish";
+    @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format [default: stylish]")
+    private String format;
 
     @Override
     public Integer call() throws IOException {
-        System.out.println("filepath1" + filepath1);
-        System.out.println("filepath2" + filepath2);
+        System.out.println(Differ.generate(filepath1, filepath2, format));
         return 0;
     }
     public static void main(String[] args) {
