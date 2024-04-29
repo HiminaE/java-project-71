@@ -9,22 +9,22 @@ import java.util.concurrent.Callable;
 import java.io.IOException;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "gendiff 1.0.0",
-        description = "Comparing the contents of two files.")
+        description = "Compares two configuration files and shows a difference.")
 
 public final class App implements Callable<Integer> {
 
-    @Parameters(index = "0", paramLabel = "path1", description = "patch to first file")
-    private String path1;
-    @Parameters(index = "1", paramLabel = "path2", description = "patch to second file")
-    private String path2;
+    @Parameters(index = "0", paramLabel = "filepath1", description = "patch to first file")
+    private String filepath1;
+    @Parameters(index = "1", paramLabel = "filepath2", description = "patch to second file")
+    private String filepath2;
 
-    @Option(names = {"-a", "--algorithm"}, description = "empty algoritm")
-    private String algorithm = "empty";
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
+    private String format = "stylish";
 
     @Override
     public Integer call() throws IOException {
-        System.out.println("filepath1" + path1);
-        System.out.println("filepath2" + path2);
+        System.out.println("filepath1" + filepath1);
+        System.out.println("filepath2" + filepath2);
         return 0;
     }
     public static void main(String[] args) {
