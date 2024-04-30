@@ -3,6 +3,6 @@
 Форматы файлов - json и yml.
 ## Демонстрация проекта:
 ### Сравнение двух JSON файлов:
-[![asciicast](https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h.cast)] (https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h)
+[![asciicast]( https://asciinema.org/connect/721a3aee-453b-4d3a-8613-3f4ac2a87ee0] (https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h)
 ## Hexlet tests and linter status:
 [![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
