@@ -7,3 +7,4 @@
 ## Hexlet tests and linter status:
 [![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
 [![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/gradle.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/15259c6f489a97188800/maintainability)](https://codeclimate.com/github/HiminaE/java-project-71/maintainability)
