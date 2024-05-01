@@ -19,9 +19,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class Differ {
-    public static String generate(String filepath1, String filepath2) throws IOException {
-        return generate(filepath1, filepath2, "stylish");
-    }
     public static String generate(String filepath1, String filepath2, String format) throws IOException {
         Map<String, Object> file1 = getData(filepath1);
         Map<String, Object> file2 = getData(filepath2);
