@@ -16,16 +16,18 @@ import java.util.Objects;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 public class Differ {
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
     public static String generate(String filepath1, String filepath2, String format) throws IOException {
         Map<String, Object> file1 = getData(filepath1);
         Map<String, Object> file2 = getData(filepath2);
         List<Map<String, Object>> diff = build(file1, file2);
         return chooseFormat(diff, format);
     };
-
     public static String jsonFormat(List<Map<String, Object>> diff) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(diff);
@@ -49,10 +51,16 @@ public class Differ {
         Map<String, Object> result = new HashMap<>();
         if (format.equals("json")) {
             result = parsingJson(fileContent);
+        } else if (format.equals("yml") || format.equals("yaml")) {
+            result = parsingYml(fileContent);
         } else {
             throw new RuntimeException("Неверный формат: " + format);
         }
         return result;
+    }
+    public static Map<String, Object> parsingYml(String fileContent) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        return mapper.readValue(fileContent, new TypeReference<Map<String, Object>>() { });
     }
     public static Map<String, Object> parsingJson(String fileContent) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -99,14 +107,12 @@ public class Differ {
         return result;
     }
     public static String chooseFormat(List<Map<String, Object>> diff, String format) throws JsonProcessingException {
-        String result = "";
-        if (format.equals("stylish")) {
-            result = stylishFormat(diff);
-        } else if (format.equals("json")) {
-            result = jsonFormat(diff);
-        }  else {
-            throw new RuntimeException("Неверный формат: " + format);
-        }
+        String result = switch (format) {
+            case "stylish" -> stylishFormat(diff);
+            case "plain" -> plainFormat(diff);
+            case "json" -> jsonFormat(diff);
+            default -> throw new RuntimeException("Неверный формат: " + format);
+        };
         return result;
     }
     public static String stylishFormat(List<Map<String, Object>> diff) {
@@ -128,6 +134,36 @@ public class Differ {
         }
         result.append("}");
         return result.toString();
+    }
+    public static String plainFormat(List<Map<String, Object>> diff) {
+        StringBuilder result = new StringBuilder();
+        for (var d : diff) {
+            if (d.get("type").equals("deleted")) {
+                result.append("Property '").append(d.get("key")).append("' was removed").append("\n");
+            }
+            if (d.get("type").equals("added")) {
+                result.append("Property '").append(d.get("key")).append("' was added with value: ")
+                        .append(convertedValue(d.get("newValue"))) .append("\n");
+            }
+            if (d.get("type").equals("changed")) {
+                result.append("Property '").append(d.get("key")).append("' was updated. From ")
+                        .append(convertedValue(d.get("oldValue"))).append(" to ")
+                        .append(convertedValue(d.get("newValue"))).append("\n");
+            }
+        }
+        return result.toString().trim();
+    }
+    public static String convertedValue(Object value) {
+        if (value.equals("null")) {
+            return null;
+        } else if (value instanceof Integer) {
+            return value.toString();
+        } else if (value instanceof String) {
+            return "'" + value + "'";
+        } else if (value instanceof Boolean) {
+            return value.toString();
+        }
+        return "[complex value]";
     }
 }
 
