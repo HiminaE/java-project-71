@@ -1,61 +1,36 @@
-import hexlet.code.Differ;
-import org.junit.jupiter.api.BeforeAll;
+package hexlet.code;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import static org.assertj.core.api.Assertions.assertThat;
 
-public class DiffTest {
-    private static String resultStylish;
-    private static String resultPlain;
-    private static String resultJson;
-    public static String fileToString(String fileName) throws Exception {
-        Path path = filePath(fileName);
-        return Files.readString(path);
+public class AppTest {
+    @Test
+    public void test1() throws Exception {
+        var actual = Differ.generate("src/test/resources/test1.json", "test2.json");
+        String expected = Files.readString(Paths.get("src/test/resources/outputStylish.txt").toAbsolutePath().normalize();
+        assertEquals(expected, actual);
     }
-    public static Path filePath(String fileName) {
-        return Paths.get("src", "test", "resources", fileName).toAbsolutePath().normalize();
-    }
-    @BeforeAll
-    public static void beforeAll() throws Exception {
-        resultJson = fileToString("outputJson.json");
-        resultStylish = fileToString("outputStylish.txt");
-        resultPlain = fileToString("outputPlain.txt");
+
+    @Test
+    public void test2() throws Exception {
+        var actual = Differ.generate("src/test/resources/test1.json", "test2.json", "stylish");
+        String expected = Files.readString(Paths.get("src/test/resources/outputStylish.txt").toAbsolutePath().normalize();
+        assertEquals(expected, actual);
     }
     @Test
-    public void testYml() throws Exception {
-        String result = Differ.generate("src/test/resources/test1.yml", "src/test/resources/test2.yml");
-        assertThat(result).isEqualToIgnoringWhitespace(resultStylish);
+    public void test3() throws Exception {
+        var actual = Differ.generate("src/test/resources/test1.yml", "test2.yml", "plain");
+        String expected = Files.readString(Paths.get("src/test/resources/outputYml.txt").toAbsolutePath().normalize();
+        assertEquals(expected, actual);
     }
     @Test
-    public void testJson() throws Exception {
-        String result = Differ.generate("src/test/resources/fileForest1.json", "src/test/resources/fileForTest2.json");
-        assertThat(result).isEqualToIgnoringWhitespace(resultStylish);
+    public void test4() throws Exception {
+        var actual = Differ.generate("src/test/resources/test3.json", "test4.json", "plain");
+        String expected = Files.readString(Paths.get("src/test/resources/outputYml.txt").toAbsolutePath().normalize();
+        assertEquals(expected, actual);
     }
-    @Test
-    public void testYmlStylish() throws Exception {
-        String result = Differ.generate("src/test/resources/test1.yml", "src/test/resources/test2.yml",
-                "stylish");
-        assertThat(result).isEqualToIgnoringWhitespace(resultStylish);
-    }
-    @Test
-    public void testJsonStylish() throws Exception {
-        String result = Differ.generate("src/test/resources/fileForTest1.json",
-                "src/test/resources/fileForTest2.json", "stylish");
-        assertThat(result).isEqualToIgnoringWhitespace(resultStylish);
-    }
-    @Test
-    public void testYmlPlain() throws Exception {
-        String result = Differ.generate("src/test/resources/test1.yml", "src/test/resources/test2.yml",
-                "plain");
-        assertThat(result).isEqualToIgnoringWhitespace(resultPlain);
-    }
-    @Test
-    public void testJsonPlain() throws Exception {
-        String result = Differ.generate("src/test/resources/fileForTest1.json",
-                "src/test/resources/fileForTest2.json", "plain");
-        assertThat(result).isEqualToIgnoringWhitespace(resultPlain);
-    }
+
 }

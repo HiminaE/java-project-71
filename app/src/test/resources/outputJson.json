@@ -1,0 +1,72 @@
+[ {
+  "type" : "unchanged",
+  "value" : [ "a", "b", "c" ],
+  "key" : "chars1"
+}, {
+  "value2" : false,
+  "value1" : [ "d", "e", "f" ],
+  "type" : "changed",
+  "key" : "chars2"
+}, {
+  "value2" : true,
+  "value1" : false,
+  "type" : "changed",
+  "key" : "checked"
+}, {
+  "value2" : [ "value1", "value2" ],
+  "value1" : null,
+  "type" : "changed",
+  "key" : "default"
+}, {
+  "value2" : null,
+  "value1" : 45,
+  "type" : "changed",
+  "key" : "id"
+}, {
+  "type" : "deleted",
+  "value" : "value1",
+  "key" : "key1"
+}, {
+  "type" : "added",
+  "value" : "value2",
+  "key" : "key2"
+}, {
+  "type" : "unchanged",
+  "value" : [ 1, 2, 3, 4 ],
+  "key" : "numbers1"
+}, {
+  "value2" : [ 22, 33, 44, 55 ],
+  "value1" : [ 2, 3, 4, 5 ],
+  "type" : "changed",
+  "key" : "numbers2"
+}, {
+  "type" : "deleted",
+  "value" : [ 3, 4, 5 ],
+  "key" : "numbers3"
+}, {
+  "type" : "added",
+  "value" : [ 4, 5, 6 ],
+  "key" : "numbers4"
+}, {
+  "type" : "added",
+  "value" : {
+    "nestedKey" : "value",
+    "isNested" : true
+  },
+  "key" : "obj1"
+}, {
+  "value2" : "Another value",
+  "value1" : "Some value",
+  "type" : "changed",
+  "key" : "setting1"
+}, {
+  "value2" : 300,
+  "value1" : 200,
+  "type" : "changed",
+  "key" : "setting2"
+}, {
+  "value2" : "none",
+  "value1" : true,
+  "type" : "changed",
+  "key" : "setting3"
+} ]
