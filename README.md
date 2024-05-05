@@ -4,6 +4,10 @@
 ## Демонстрация проекта:
 ### Сравнение двух JSON файлов:
 [![asciicast](https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h.svg)](https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h)
+### Сравнение двух YML файлов:
+[![asciicast](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0).svg)](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0)
+### Вывод справки:
+[![asciicast](https://asciinema.org/a/YiiLV8TceNcEo9aUrtHADhCOh.svg)](https://asciinema.org/a/YiiLV8TceNcEo9aUrtHADhCOh)
 ## Hexlet tests and linter status:
 [![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
 [![Makefile](https://github.com/HiminaE/java-project-71/actions/workflows/makefile.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
