@@ -19,7 +19,6 @@ public class Parser {
         ObjectMapper mapper = new ObjectMapper();
         LinkedHashMap<String, Object> linkedMap = mapper.readValue(fileContent,
                 new TypeReference<LinkedHashMap<String, Object>>() { });
-
         return new LinkedHashMap<>(linkedMap);
     }
     public static Map<String, Object> parser(String fileContent, String format) throws IOException {

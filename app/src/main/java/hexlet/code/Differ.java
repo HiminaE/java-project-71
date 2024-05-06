@@ -27,7 +27,7 @@ public class Differ {
         Map<String, Object> file2 = getData(filepath2);
         List<Map<String, Object>> diff = build(file1, file2);
         return chooseFormat(diff, format);
-    };
+    }
     public static String jsonFormat(List<Map<String, Object>> diff) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(diff);
