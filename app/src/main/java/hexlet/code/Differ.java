@@ -37,7 +37,7 @@ public class Differ {
         String fileContent = Files.readString(path);
         String format = getFileFormat(filePath);
         Map<String, Object> parsedData = new LinkedHashMap<>();
-        Map<String, Object> parsedMap = parser(fileContent, format);
+        Map<String, Object> parsedMap = Parser.parser(fileContent, format);
 
         for (Map.Entry<String, Object> entry : parsedMap.entrySet()) {
             parsedData.put(entry.getKey(), entry.getValue());
@@ -47,28 +47,7 @@ public class Differ {
     public static String getFileFormat(String path) {
         return path.substring(path.lastIndexOf('.') + 1).toLowerCase();
     }
-    public static Map<String, Object> parser(String fileContent, String format) throws IOException {
-        Map<String, Object> result = new HashMap<>();
-        if (format.equals("json")) {
-            result = parsingJson(fileContent);
-        } else if (format.equals("yml") || format.equals("yaml")) {
-            result = parsingYml(fileContent);
-        } else {
-            throw new RuntimeException("Неверный формат: " + format);
-        }
-        return result;
-    }
-    public static Map<String, Object> parsingYml(String fileContent) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        return mapper.readValue(fileContent, new TypeReference<Map<String, Object>>() { });
-    }
-    public static Map<String, Object> parsingJson(String fileContent) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        LinkedHashMap<String, Object> linkedMap = mapper.readValue(fileContent,
-                new TypeReference<LinkedHashMap<String, Object>>() { });
 
-        return new LinkedHashMap<>(linkedMap);
-    }
     public static List<Map<String, Object>> build(Map<String, Object> file1, Map<String, Object> file2) {
         Set<String> keys = new TreeSet<>(file1.keySet());
         keys.addAll(file2.keySet());
