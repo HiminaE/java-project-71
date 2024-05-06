@@ -25,7 +25,7 @@ public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws IOException {
         Map<String, Object> file1 = getData(filepath1);
         Map<String, Object> file2 = getData(filepath2);
-        List<Map<String, Object>> diff = build(file1, file2);
+        List<Map<String, Object>> diff = Builder.build(file1, file2);
         return chooseFormat(diff, format);
     }
     public static String jsonFormat(List<Map<String, Object>> diff) throws JsonProcessingException {
@@ -48,43 +48,6 @@ public class Differ {
         return path.substring(path.lastIndexOf('.') + 1).toLowerCase();
     }
 
-    public static List<Map<String, Object>> build(Map<String, Object> file1, Map<String, Object> file2) {
-        Set<String> keys = new TreeSet<>(file1.keySet());
-        keys.addAll(file2.keySet());
-        List<Map<String, Object>> result = new LinkedList<>();
-        for (var key :keys) {
-            Object value1 = file1.get(key) == null ? "null" : file1.get(key);
-            Object value2 = file2.get(key) == null ? "null" : file2.get(key);
-            if (Objects.equals(value1, value2)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "unchanged");
-                node.put("key", key);
-                node.put("newValue", value1);
-                result.add(node);
-            } else if (file1.containsKey(key) && !file2.containsKey(key)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "deleted");
-                node.put("key", key);
-                node.put("newValue", value1);
-                result.add(node);
-            } else if (file2.containsKey(key) && !file1.containsKey(key)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "added");
-                node.put("key", key);
-                node.put("newValue", value2);
-                result.add(node);
-            } else {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "changed");
-                node.put("key", key);
-                node.put("oldValue", value1);
-                node.put("newValue", value2);
-                result.add(node);
-            }
-        }
-
-        return result;
-    }
     public static String chooseFormat(List<Map<String, Object>> diff, String format) throws JsonProcessingException {
         String result = switch (format) {
             case "stylish" -> stylishFormat(diff);
