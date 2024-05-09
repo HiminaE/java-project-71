@@ -23,9 +23,15 @@ public class Plain {
         return result.toString().trim();
     }
     public static String convertedValue(Object value) {
-        if (value == null) {return "null";}
-        if (value instanceof String) {return "'" + value + "'";}
-        if (value instanceof Map || value instanceof List) {return "[complex value]";}
-        return value.toString();
+        if (value.equals("null")) {
+            return null;
+        } else if (value instanceof Integer) {
+            return value.toString();
+        } else if (value instanceof String) {
+            return "'" + value + "'";
+        } else if (value instanceof Boolean) {
+            return value.toString();
+        }
+        return "[complex value]";
     }
 }
