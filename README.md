@@ -3,7 +3,7 @@
 Форматы файлов - json и yml.
 ## Демонстрация проекта:
 ### Сравнение двух JSON файлов:
-[![asciicast](https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h.svg)](https://asciinema.org/a/3WC51kyTkMDmtMyEAkqHPtF1h)
+[![asciicast]( https://asciinema.org/a/fooqi9oJ9CQte0VXv142iyOre.svg)]( https://asciinema.org/a/fooqi9oJ9CQte0VXv142iyOre)
 ### Сравнение двух YML файлов:
 [![asciicast](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0.svg)](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0)
 ### Вывод справки:
