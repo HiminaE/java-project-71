@@ -16,6 +16,7 @@ public class AppTest {
     private final Path pathStylish = Paths.get("src/test/resources/outputStylish.txt").toAbsolutePath().normalize();
     private final Path pathPlain = Paths.get("src/test/resources/outputPlain.txt").toAbsolutePath().normalize();
     private final Path pathJson = Paths.get("src/test/resources/outputJson.json").toAbsolutePath().normalize();
+    
     @Test
     public void testJson() throws Exception {
         var actual = Differ.generate(filePath1, filePath2);
@@ -28,7 +29,6 @@ public class AppTest {
         String expected = Files.readString(pathStylish);
         assertEquals(expected, actual);
     }
-
     @Test
     public void testJsonStylish() throws Exception {
         var actual = Differ.generate(filePath1, filePath2, "stylish");
