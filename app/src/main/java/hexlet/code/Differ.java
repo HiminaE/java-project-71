@@ -5,18 +5,10 @@ import java.nio.file.Path;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedHashMap;
-import java.util.HashMap;
 import java.util.List;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Objects;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import hexlet.code.formaters.Json;
 import hexlet.code.formaters.Plain;
 import hexlet.code.formaters.Stylish;
