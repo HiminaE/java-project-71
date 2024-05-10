@@ -3,7 +3,7 @@
 Форматы файлов - json и yml.
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
-[![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/javaci.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions)
+[![Actions Status](https://github.com/HiminaE/java-project-71/actions/workflows/javaci.yml/badge.svg)](https://github.com/HiminaE/java-project-71/actions/workflows/javaci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/15259c6f489a97188800/maintainability)](https://codeclimate.com/github/HiminaE/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/15259c6f489a97188800/test_coverage)](https://codeclimate.com/github/HiminaE/java-project-71/test_coverage)
 ## Демонстрация проекта:
