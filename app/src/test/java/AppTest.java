@@ -28,7 +28,6 @@ public class AppTest {
         String expected = Files.readString(pathStylish);
         assertEquals(expected, actual);
     }
-
     @Test
     public void testJsonStylish() throws Exception {
         var actual = Differ.generate(filePath1, filePath2, "stylish");
