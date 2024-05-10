@@ -1,7 +1,17 @@
 run-dist:
-	./build/install/app/bin/app -f plain src/main/resources/file3.json src/main/resources/file4.json
+	./build/install/app/bin/app
+start:
+	./gradlew run
 build:
 	./gradlew build
-install:
-	./gradlew clean install
+clean:
+	./gradlew clean
+test:
+	./gradlew test
+report:
+	./gradlew jacocoTestReport
+lint:
+	./gradlew checkstyleMain checkstyleTest
+build-run:
+	build run
 .PHONY: build
