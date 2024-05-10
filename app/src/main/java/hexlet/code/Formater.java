@@ -8,10 +8,6 @@ import hexlet.code.formaters.Stylish;
 import java.util.List;
 import java.util.Map;
 
-import static hexlet.code.formaters.Json.jsonFormat;
-import static hexlet.code.formaters.Plain.plainFormat;
-import static hexlet.code.formaters.Stylish.stylishFormat;
-
 public class Formater {
     public static String chooseFormat(List<Map<String, Object>> diff, String format) throws JsonProcessingException {
         String result = switch (format) {
