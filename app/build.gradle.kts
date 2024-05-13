@@ -5,6 +5,8 @@ plugins {
     application
     jacoco
     id ("checkstyle")
+    id ("com.adarshr.test-logger") version "3.0.0"
+    id ("com.github.ben-manes.versions") version "0.39.0"
 }
 application {
     mainClass = "hexlet.code.App"
