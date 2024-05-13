@@ -9,12 +9,11 @@ public class Plain {
         for (var d : diff) {
             if (d.get("type").equals("deleted")) {
                 result.append("Property '").append(d.get("key")).append("' was removed").append("\n");
-            }
-            if (d.get("type").equals("added")) {
+            } else if (d.get("type").equals("added")) {
                 result.append("Property '").append(d.get("key")).append("' was added with value: ")
-                        .append(convertedValue(d.get("newValue"))) .append("\n");
-            }
-            if (d.get("type").equals("changed")) {
+                        .append(convertedValue(d.get("newValue")))
+                        .append("\n");
+            } else if (d.get("type").equals("changed")) {
                 result.append("Property '").append(d.get("key")).append("' was updated. From ")
                         .append(convertedValue(d.get("oldValue"))).append(" to ")
                         .append(convertedValue(d.get("newValue"))).append("\n");
