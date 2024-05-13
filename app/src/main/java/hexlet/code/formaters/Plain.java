@@ -31,7 +31,7 @@ public class Plain {
         } else if (value instanceof String) {
             return "'" + value + "'";
         } else if (value == null) {
-            return null;
+            return "null";
         }
         return value.toString();
     }
