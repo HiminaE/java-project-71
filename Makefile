@@ -1,7 +1,5 @@
-.DEFAULT_GOAL := build-run
-
 run-dist:
-	make -C app run-dist
+	make -C run-dist
 
 build:
 	make -C app build
@@ -17,8 +15,3 @@ report:
 
 lint:
 	make -C app lint
-
-build-run:
-	build run
-
-.PHONY: build
