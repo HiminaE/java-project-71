@@ -34,14 +34,14 @@ public class Builder {
                 node.put("key", key);
                 node.put("newValue", value2);
                 result.add(node);
-            } else {
+            } else if (!Objects.equals(value1, value2)) {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "changed");
                 node.put("key", key);
                 node.put("oldValue", value1);
                 node.put("newValue", value2);
                 result.add(node);
-            }
+            } else { throw new RuntimeException("Unknown status: " + key); }
         }
         return result;
     }
