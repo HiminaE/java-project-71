@@ -43,7 +43,6 @@ public class Builder {
                 result.add(node);
             }
         }
-
         return result;
     }
 }

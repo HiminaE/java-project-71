@@ -16,53 +16,60 @@ public class AppTest {
     private final Path pathStylish = Paths.get("src/test/resources/outputStylish.txt").toAbsolutePath().normalize();
     private final Path pathPlain = Paths.get("src/test/resources/outputPlain.txt").toAbsolutePath().normalize();
     private final Path pathJson = Paths.get("src/test/resources/outputJson.json").toAbsolutePath().normalize();
+
     @Test
     public void testJson() throws Exception {
         var actual = Differ.generate(filePath1, filePath2);
         String expected = Files.readString(pathStylish);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testYml() throws Exception {
         var actual = Differ.generate(filePath3, filePath4);
         String expected = Files.readString(pathStylish);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testJsonStylish() throws Exception {
         var actual = Differ.generate(filePath1, filePath2, "stylish");
         String expected = Files.readString(pathStylish);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testYmlStylish() throws Exception {
         var actual = Differ.generate(filePath3, filePath4, "stylish");
         String expected = Files.readString(pathStylish);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testYmlPlain() throws Exception {
         var actual = Differ.generate(filePath3, filePath4, "plain");
         String expected = Files.readString(pathPlain);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testJsonPlain() throws Exception {
         var actual = Differ.generate(filePath1, filePath2, "plain");
         String expected = Files.readString(pathPlain);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testYmlJson() throws Exception {
         var actual = Differ.generate(filePath3, filePath4, "json");
         String expected = Files.readString(pathJson);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testJsonJson() throws Exception {
         var actual = Differ.generate(filePath1, filePath2, "json");
         String expected = Files.readString(pathJson);
         assertEquals(expected, actual);
     }
-    
 }
