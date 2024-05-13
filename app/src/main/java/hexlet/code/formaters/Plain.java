@@ -13,7 +13,7 @@ public class Plain {
                 result.append("Property '").append(d.get("key")).append("' was added with value: ")
                         .append(convertedValue(d.get("newValue")))
                         .append("\n");
-            } else if (d.get("type").equals("changed")) {
+            } else {
                 result.append("Property '").append(d.get("key")).append("' was updated. From ")
                         .append(convertedValue(d.get("oldValue"))).append(" to ")
                         .append(convertedValue(d.get("newValue"))).append("\n");
