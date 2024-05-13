@@ -41,7 +41,9 @@ public class Builder {
                 node.put("oldValue", value1);
                 node.put("newValue", value2);
                 result.add(node);
-            } else { throw new RuntimeException("Unknown status: " + key); }
+            } else {
+                throw new RuntimeException("Unknown status: " + key);
+            }
         }
         return result;
     }
