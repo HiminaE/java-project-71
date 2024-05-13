@@ -1,31 +1,37 @@
 package hexlet.code.formaters;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Map;
+import java.util.Collections;
+import java.util.ArrayList;
 
 public class Plain {
-    public static String plainFormat(Map<String, Object> diff) {
-        String type = (String) diff.get("type");
-        if (type == "deleted") {
-            return "Property '" + diff.get("key") + "' was removed" + "\n";
-        } else if (type == "added") {
-            return "Property '" + diff.get("key") + "' was added with value: " + convertedValue(diff.get("newValue")) + "\n";
-        } else if (type == "changed") {
-            return "Property '" + diff.get("key") + "' was updated. From " + convertedValue(diff.get("oldValue"))
-                    + " to " + convertedValue(diff.get("newValue")) + "\n";
-        } else if (type == "unchanged") {
-            return "";
-        } else {
-            throw new RuntimeException("Unknown type");
+    public static String plainFormat(List<Map<String, Object>> diff) {
+        StringBuilder result = new StringBuilder();
+        for (var d : diff) {
+            if (d.get("type").equals("deleted")) {
+                result.append("Property '").append(d.get("key")).append("' was removed").append("\n");
+            } else if (d.get("type").equals("added")) {
+                result.append("Property '").append(d.get("key")).append("' was added with value: ")
+                        .append(convertedValue(d.get("newValue"))) .append("\n");
+            } else if (d.get("type").equals("changed")) {
+                result.append("Property '").append(d.get("key")).append("' was updated. From ")
+                        .append(convertedValue(d.get("oldValue"))).append(" to ")
+                        .append(convertedValue(d.get("newValue"))).append("\n");
+            } else if (d.get("type").equals("unchanged")) {
+                result.append("");
+            }
         }
+        return result.toString().trim();
     }
     public static String convertedValue(Object value) {
-        if (value == null) {
-            return "null";
-        } else if (value instanceof Collection<?> || value instanceof Map<?, ?>) {
+        if (value instanceof Object[] || value instanceof Collections || value instanceof Map
+                || value instanceof ArrayList<?>) {
             return "[complex value]";
         } else if (value instanceof String) {
             return "'" + value + "'";
+        } else if (value == null) {
+            return null;
         }
         return value.toString();
     }
