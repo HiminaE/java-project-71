@@ -24,6 +24,7 @@ public class Plain {
         }
         return result.toString().trim();
     }
+    
     public static String convertedValue(Object value) {
         if (value instanceof Object[] || value instanceof Collections || value instanceof Map
                 || value instanceof ArrayList<?>) {
