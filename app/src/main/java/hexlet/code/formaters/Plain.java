@@ -1,36 +1,32 @@
 package hexlet.code.formaters;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
 
 public class Plain {
-    public static String plainFormat(List<Map<String, Object>> diff) {
-        StringBuilder result = new StringBuilder();
-        for (var d : diff) {
-            if (d.get("type").equals("deleted")) {
-                result.append("Property '").append(d.get("key")).append("' was removed").append("\n");
-            } else if (d.get("type").equals("added")) {
-                result.append("Property '").append(d.get("key")).append("' was added with value: ")
-                        .append(convertedValue(d.get("newValue")))
-                        .append("\n");
-            } else {
-                result.append("Property '").append(d.get("key")).append("' was updated. From ")
-                        .append(convertedValue(d.get("oldValue"))).append(" to ")
-                        .append(convertedValue(d.get("newValue"))).append("\n");
-            }
+    public static String plainFormat(Map<String, Object> diff) {
+        String type = (String) diff.get("type");
+        if (type == "deleted") {
+            return "Property '" + diff.get("key") + "' was removed" + "\n";
+        } else if (type == "added") {
+            return "Property '" + diff.get("key") + "' was added with value: " + convertedValue(diff.get("newValue")) + "\n";
+        } else if (type == "changed") {
+            return "Property '" + diff.get("key") + "' was updated. From " + convertedValue(diff.get("oldValue"))
+                    + " to " + convertedValue(diff.get("newValue")) + "\n";
+        } else if (type == "unchanged") {
+            return "";
+        } else {
+            throw new RuntimeException("Unknown type");
         }
-        return result.toString().trim();
     }
     public static String convertedValue(Object value) {
-        if (value.equals("null")) {
-            return null;
-        } else if (value instanceof Integer) {
-            return value.toString();
+        if (value == null) {
+            return "null";
+        } else if (value instanceof Collection<?> || value instanceof Map<?, ?>) {
+            return "[complex value]";
         } else if (value instanceof String) {
             return "'" + value + "'";
-        } else if (value instanceof Boolean) {
-            return value.toString();
         }
-        return "[complex value]";
+        return value.toString();
     }
 }
