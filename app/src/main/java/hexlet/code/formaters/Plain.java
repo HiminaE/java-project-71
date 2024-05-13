@@ -2,7 +2,8 @@ package hexlet.code.formaters;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.ArrayList;
 
 public class Plain {
     public static String plainFormat(List<Map<String, Object>> diff) {
@@ -23,14 +24,14 @@ public class Plain {
         }
         return result.toString().trim();
     }
-
     public static String convertedValue(Object value) {
-        if (value == null) {
-            return "null";
-        } else if (value instanceof Collection<?> || value instanceof Map<?, ?>) {
+        if (value instanceof Object[] || value instanceof Collections || value instanceof Map
+                || value instanceof ArrayList<?>) {
             return "[complex value]";
         } else if (value instanceof String) {
             return "'" + value + "'";
+        } else if (value == null) {
+            return "null";
         }
         return value.toString();
     }
