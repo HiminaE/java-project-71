@@ -29,10 +29,10 @@ public class Plain {
         if (value instanceof Object[] || value instanceof Collections || value instanceof Map
                 || value instanceof ArrayList<?>) {
             return "[complex value]";
+        } else if (value.equals("null")) {
+            return "null";
         } else if (value instanceof String) {
             return "'" + value + "'";
-        } else if (value == null) {
-            return "null";
         }
         return value.toString();
     }
