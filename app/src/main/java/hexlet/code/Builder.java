@@ -14,8 +14,8 @@ public class Builder {
         keys.addAll(file2.keySet());
         List<Map<String, Object>> result = new LinkedList<>();
         for (var key :keys) {
-            //Object value1 = file1.get(key) == null ? "null" : file1.get(key);
-            //Object value2 = file2.get(key) == null ? "null" : file2.get(key);
+            Object value1 = file1.get(key) == null ? "null" : file1.get(key);
+            Object value2 = file2.get(key) == null ? "null" : file2.get(key);
             if (Objects.equals(value1, value2)) {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "unchanged");
