@@ -1,5 +1,5 @@
 run-dist:
-	./build/install/app/bin/app src/main/resources/file3.json src/main/resources/file4.json
+	./build/install/app/bin/app
 start:
 	./gradlew run
 build:
