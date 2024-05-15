@@ -34,7 +34,7 @@ public class Builder {
                 node.put("key", key);
                 node.put("newValue", value2);
                 result.add(node);
-            } else if (!isEqual(data1.get(key), data2.get(key))) {
+            } else if (!isEqual(value1, value2)) {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "changed");
                 node.put("key", key);
