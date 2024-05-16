@@ -15,7 +15,7 @@ public class Differ {
         Map<String, Object> file1 = getData(filepath1);
         Map<String, Object> file2 = getData(filepath2);
         List<Map<String, Object>> diff = Builder.build(file1, file2);
-        return Formater.chooseFormat(diff, format);
+        return Formatter.chooseFormat(diff, format);
     }
 
     public static Map<String, Object> getData(String filePath) throws Exception {
