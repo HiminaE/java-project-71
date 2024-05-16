@@ -48,5 +48,5 @@ public class Builder {
             result.add(data);
         }
         return result;
-    }    
+    }
 }
