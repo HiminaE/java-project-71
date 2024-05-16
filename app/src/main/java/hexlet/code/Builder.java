@@ -14,8 +14,8 @@ public class Builder {
         keys.addAll(data2.keySet());
         List<Map<String, Object>> result = new LinkedList<>();
         for (var key :keys) {
-            //Object value1 = data1.get(key);
-            //Object value2 = data2.get(key);
+            Object value1 = data1.get(key);
+            Object value2 = data2.get(key);
             Map<String, Object> data = new LinkedHashMap<>();
             if (data1.containsKey(key) && !data2.containsKey(key)) {
                 //Map<String, Object> node = new LinkedHashMap<>();
