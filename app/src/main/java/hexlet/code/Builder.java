@@ -45,7 +45,7 @@ public class Builder {
             } else {
                 throw new RuntimeException("Unknown type: " + key);
             }
-            result.add(map);
+            result.add(data);
         }
         return result;
     }    
