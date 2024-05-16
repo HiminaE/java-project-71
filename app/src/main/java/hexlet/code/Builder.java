@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,7 +12,7 @@ public class Builder {
     public static List<Map<String, Object>> build(Map<String, Object> data1, Map<String, Object> data2) {
         Set<String> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
-        List<Map<String, Object>> result = new LinkedList<>();
+        List<Map<String, Object>> result = new ArrayList<>();
         for (var key :keys) {
             //Object value1 = data1.get(key);
             //Object value2 = data2.get(key);
@@ -27,7 +27,7 @@ public class Builder {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "added");
                 data.put("key", key);
-                data.put("newValue", data12.get(key));
+                data.put("newValue", data2.get(key));
                 //result.add(node);
             } else if (!Object.equals(data1.get(key), data2.get(key))) {
                 //Map<String, Object> node = new LinkedHashMap<>();
