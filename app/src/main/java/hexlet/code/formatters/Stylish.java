@@ -9,16 +9,15 @@ public class Stylish {
         for (var d : diff) {
             if (d.get("type").equals("deleted")) {
                 result.append("  - ").append(d.get("key")).append(": ").append(d.get("newValue")).append("\n");
-            }
-            if (d.get("type").equals("added")) {
+            } else if (d.get("type").equals("added")) {
                 result.append("  + ").append(d.get("key")).append(": ").append(d.get("newValue")).append("\n");
-            }
-            if (d.get("type").equals("unchanged")) {
-                result.append("    ").append(d.get("key")).append(": ").append(d.get("newValue")).append("\n");
-            }
-            if (d.get("type").equals("changed")) {
+            } else if (d.get("type").equals("changed")) {
                 result.append("  - ").append(d.get("key")).append(": ").append(d.get("oldValue")).append("\n");
                 result.append("  + ").append(d.get("key")).append(": ").append(d.get("newValue")).append("\n");
+            } else if (d.get("type").equals("unchanged")) {
+                result.append("    ").append(d.get("key")).append(": ").append(d.get("newValue")).append("\n");
+            } else {
+                throw new RuntimeException("Unknown status: " + d.get("type"));
             }
         }
         result.append("}");
