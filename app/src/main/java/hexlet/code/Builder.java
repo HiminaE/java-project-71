@@ -14,33 +14,33 @@ public class Builder {
         keys.addAll(data2.keySet());
         List<Map<String, Object>> result = new LinkedList<>();
         for (var key :keys) {
-            Object value1 = data1.get(key);
-            Object value2 = data2.get(key);
+            //Object value1 = data1.get(key);
+            //Object value2 = data2.get(key);
             Map<String, Object> data = new LinkedHashMap<>();
             if (data1.containsKey(key) && !data2.containsKey(key)) {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "deleted");
                 data.put("key", key);
-                data.put("newValue", value1);
+                data.put("newValue", data1.get(key));
                 //result.add(node);
             } else if (data2.containsKey(key) && !data1.containsKey(key)) {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "added");
                 data.put("key", key);
-                data.put("newValue", value2);
+                data.put("newValue", data12.get(key));
                 //result.add(node);
-            } else if (!Object.equals(value1, value2)) {
+            } else if (!Object.equals(data1.get(key), data2.get(key))) {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "changed");
                 data.put("key", key);
-                data.put("oldValue", value1);
-                data.put("newValue", value2);
+                data.put("oldValue", data1.get(key));
+                data.put("newValue", data2.get(key));
                 //result.add(node);
-            } else if (Object.equals(value1, value2)) {
+            } else if (Object.equals(data1.get(key), data2.get(key))) {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "unchanged");
                 data.put("key", key);
-                data.put("newValue", value1);
+                data.put("newValue", data1.get(key));
                 //result.add(node);
             } else {
                 throw new RuntimeException("Unknown type: " + key);
