@@ -29,14 +29,14 @@ public class Builder {
                 data.put("key", key);
                 data.put("newValue", data2.get(key));
                 //result.add(node);
-            } else if (!Object.equals(data1.get(key), data2.get(key))) {
+            } else if (!Objects.equals(data1.get(key), data2.get(key))) {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "changed");
                 data.put("key", key);
                 data.put("oldValue", data1.get(key));
                 data.put("newValue", data2.get(key));
                 //result.add(node);
-            } else if (Object.equals(data1.get(key), data2.get(key))) {
+            } else if (Objects.equals(data1.get(key), data2.get(key))) {
                 //Map<String, Object> node = new LinkedHashMap<>();
                 data.put("type", "unchanged");
                 data.put("key", key);
