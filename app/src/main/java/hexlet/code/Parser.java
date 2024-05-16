@@ -12,12 +12,14 @@ public class Parser {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         return mapper.readValue(content, Map.class);
     }
+
     public static Map<String, Object> parsingJson(String content) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         LinkedHashMap<String, Object> linkedMap = mapper.readValue(content,
                 new TypeReference<LinkedHashMap<String, Object>>() { });
         return new LinkedHashMap<>(linkedMap);
     }
+
     public static Map<String, Object> parser(String content, String format) throws Exception {
         switch (format) {
             case "yml":
