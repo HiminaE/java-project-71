@@ -14,36 +14,38 @@ public class Builder {
         keys.addAll(data2.keySet());
         List<Map<String, Object>> result = new LinkedList<>();
         for (var key :keys) {
-            Object value1 = data1.get(key);
-            Object value2 = data2.get(key);
+            //Object value1 = data1.get(key);
+            //Object value2 = data2.get(key);
+            Map<String, Object> data = new LinkedHashMap<>();
             if (data1.containsKey(key) && !data2.containsKey(key)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "deleted");
-                node.put("key", key);
-                node.put("newValue", value1);
-                result.add(node);
+                //Map<String, Object> node = new LinkedHashMap<>();
+                data.put("type", "deleted");
+                data.put("key", key);
+                data.put("newValue", value1);
+                //result.add(node);
             } else if (data2.containsKey(key) && !data1.containsKey(key)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "added");
-                node.put("key", key);
-                node.put("newValue", value2);
-                result.add(node);
+                //Map<String, Object> node = new LinkedHashMap<>();
+                data.put("type", "added");
+                data.put("key", key);
+                data.put("newValue", value2);
+                //result.add(node);
             } else if (!Object.equals(value1, value2)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "changed");
-                node.put("key", key);
-                node.put("oldValue", value1);
-                node.put("newValue", value2);
-                result.add(node);
+                //Map<String, Object> node = new LinkedHashMap<>();
+                data.put("type", "changed");
+                data.put("key", key);
+                data.put("oldValue", value1);
+                data.put("newValue", value2);
+                //result.add(node);
             } else if (Object.equals(value1, value2)) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                node.put("type", "unchanged");
-                node.put("key", key);
-                node.put("newValue", value1);
-                result.add(node);
+                //Map<String, Object> node = new LinkedHashMap<>();
+                data.put("type", "unchanged");
+                data.put("key", key);
+                data.put("newValue", value1);
+                //result.add(node);
             } else {
                 throw new RuntimeException("Unknown type: " + key);
-            }            
+            }
+            result.add(map);
         }
         return result;
     }    
