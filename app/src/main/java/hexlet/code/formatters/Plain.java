@@ -28,8 +28,7 @@ public class Plain {
     }
 
     public static String convertedValue(Object value) {
-        if (value instanceof Object[] || value instanceof Collections || value instanceof Map
-                || value instanceof ArrayList<?>) {
+        if (value instanceof Map || value instanceof List) {
             return "[complex value]";
         } else if (value == null) {
             return "null";
