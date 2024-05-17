@@ -21,26 +21,26 @@ public class Builder {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "deleted");
                 node.put("key", key);
-                node.put("newValue", data1.get(key));
+                node.put("newValue", value1);
                 result.add(node);
             } else if (data2.containsKey(key) && !data1.containsKey(key)) {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "added");
                 node.put("key", key);
-                node.put("newValue", data2.get(key));
+                node.put("newValue", value2);
                 result.add(node);
-            } else if (!Objects.equals(data1.get(key), data2.get(key))) {
+            } else if (!Objects.equals(value1, value2)) {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "changed");
                 node.put("key", key);
-                node.put("oldValue", data1.get(key));
-                node.put("newValue", data2.get(key));
+                node.put("oldValue", value1);
+                node.put("newValue", value2);
                 result.add(node);
-            } else if (Objects.equals(data1.get(key), data2.get(key))) {
+            } else if (Objects.equals(value1, value2)) {
                 Map<String, Object> node = new LinkedHashMap<>();
                 node.put("type", "unchanged");
                 node.put("key", key);
-                node.put("newValue", data1.get(key));
+                node.put("newValue", value1);
                 result.add(node);
             } else {
                 throw new RuntimeException("Unknown type: " + key);
