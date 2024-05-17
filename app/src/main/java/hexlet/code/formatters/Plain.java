@@ -2,8 +2,6 @@ package hexlet.code.formatters;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Collections;
-import java.util.ArrayList;
 
 public class Plain {
     public static String plainFormat(List<Map<String, Object>> diff) {
