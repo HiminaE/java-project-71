@@ -30,7 +30,7 @@ public class AppTest {
     public static void beforeAll() throws Exception {
         stylishResult = readFixture("result_json.json");
         plainResult = readFixture("result_plain.json");
-        jsonResult = readFixture("result_stylish.json");;
+        jsonResult = readFixture("result_stylish.json");
         defaultResult = stylishResult;
     }
 
