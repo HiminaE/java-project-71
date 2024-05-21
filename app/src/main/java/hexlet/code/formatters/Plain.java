@@ -26,10 +26,10 @@ public class Plain {
     }
 
     public static String convertedValue(Object value) {
-        if (value instanceof Map || value instanceof List) {
-            return "[complex value]";
-        } else if (value == null) {
+        if (value == null) {
             return "null";
+        } else if (value instanceof Map || value instanceof List) {
+            return "[complex value]";
         } else if (value instanceof  String) {
             return "'" + value + "'";
         }
