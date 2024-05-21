@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+//import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import java.util.LinkedHashMap;
+//import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Parser {
@@ -15,9 +15,7 @@ public class Parser {
 
     public static Map<String, Object> parsingJson(String content) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        LinkedHashMap<String, Object> linkedMap = mapper.readValue(content,
-                new TypeReference<LinkedHashMap<String, Object>>() { });
-        return new LinkedHashMap<>(linkedMap);
+        return new mapper.readValue(content, Map.class);
     }
 
     public static Map<String, Object> parser(String content, String format) throws Exception {

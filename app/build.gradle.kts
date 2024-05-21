@@ -35,6 +35,7 @@ tasks.jacocoTestReport {
         xml.required = true
     }
 }
+
 dependencies {
     testImplementation("org.assertj:assertj-core:3.25.3")
     testImplementation(platform("org.junit:junit-bom:5.11.0-M1"))
@@ -45,16 +46,5 @@ dependencies {
     implementation ("com.fasterxml.jackson.core:jackson-databind:2.17.0")
     implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.0-rc1")
 }
-//java {
-//    toolchain {
-//        languageVersion = JavaLanguageVersion.of(21)
-//    }
-//}
-//dependencies {
-//    implementation("info.picocli:picocli:4.7.5")
-//    testImplementation(platform("org.junit:junit-bom:5.11.0-M1"))
-//    testImplementation(dependencyNotation = "org.junit.jupiter:junit-jupiter")
-//    implementation ("com.fasterxml.jackson.core:jackson-databind:2.17.0")
-//    implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.0-rc1")
-//}
+
 
