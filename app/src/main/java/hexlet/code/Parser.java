@@ -15,7 +15,7 @@ public class Parser {
 
     public static Map<String, Object> parsingJson(String content) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        return new mapper.readValue(content, Map.class);
+        return mapper.readValue(content, Map.class);
     }
 
     public static Map<String, Object> parser(String content, String format) throws Exception {
