@@ -36,7 +36,7 @@ public class AppTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
-    public void generateTest(String format) throws Exception {
+    public void appTest(String format) throws Exception {
         String filePath1 = getFixturePath("file1" + format);
         String filePath2 = getFixturePath("file2" + format);
         assertThat(Differ.generate(filePath1, filePath2)).isEqualTo(plainResult);
