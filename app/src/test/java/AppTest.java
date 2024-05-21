@@ -28,9 +28,9 @@ public class AppTest {
     }
     @BeforeAll
     public static void beforeAll() throws Exception {
-        stylishResult = readFixture("result_json.json");
-        plainResult = readFixture("result_plain.json");
-        jsonResult = readFixture("result_stylish.json");
+        stylishResult = readFixture("outputStylish.txt");
+        plainResult = readFixture("outputPlain.txt");
+        jsonResult = readFixture("outputJson.json");
         defaultResult = stylishResult;
     }
 
