@@ -10,6 +10,6 @@
 ### Сравнение двух JSON файлов:
 [![asciicast](https://asciinema.org/a/26mOIK5ORpbJFo4MQdtAmHJLZ.svg)](https://asciinema.org/a/26mOIK5ORpbJFo4MQdtAmHJLZ)
 ### Сравнение двух YML файлов:
-[![asciicast](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0.svg)](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0)
+[![asciicast](https://asciinema.org/a/8OX9WOfIXQIdhaZFi86Hlwpz5.svg)](https://asciinema.org/a/8OX9WOfIXQIdhaZFi86Hlwpz5)
 ### Вывод справки:
 [![asciicast](https://asciinema.org/a/WvWYTyU2kIMbOPWMc7bqElIlN.svg)](https://asciinema.org/a/WvWYTyU2kIMbOPWMc7bqElIlN)
