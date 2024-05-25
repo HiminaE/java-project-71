@@ -12,4 +12,4 @@
 ### Сравнение двух YML файлов:
 [![asciicast](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0.svg)](https://asciinema.org/a/asZkogLam9eymSEAxxSn5CQG0)
 ### Вывод справки:
-[![asciicast](https://asciinema.org/a/pVLuRBM62KqQi4br5py8mfkug)](https://asciinema.org/a/pVLuRBM62KqQi4br5py8mfkug)
+[![asciicast](https://asciinema.org/a/WvWYTyU2kIMbOPWMc7bqElIlN.svg)](https://asciinema.org/a/WvWYTyU2kIMbOPWMc7bqElIlN)
